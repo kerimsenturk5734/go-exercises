@@ -78,7 +78,12 @@ func main() {
 	expo := 4
 	thirdPowOfTwo, err := pow(sub, expo)
 
-	fmt.Printf("%v. power of %v is : %v, Error: %v", expo, sub, thirdPowOfTwo, err)
+	fmt.Printf("%v. power of %v is : %v, Error: %v\n", expo, sub, thirdPowOfTwo, err)
+
+	// How to get average of numbers? Let's code a function to do that!
+	avg := avg(1, 2, 4, 456, 123, 34, 67, 82, 34, 13)
+
+	fmt.Printf("Average : %v", avg)
 }
 
 func pow(sub int, expo int) (int, error) {
@@ -93,4 +98,13 @@ func pow(sub int, expo int) (int, error) {
 	expo--
 	ret, _ := pow(sub, expo)
 	return sub * ret, error(nil)
+}
+
+func avg(nums ...int) float32 {
+	var sum int
+	for _, num := range nums {
+		sum += num
+	}
+
+	return float32(sum) / float32(len(nums))
 }
